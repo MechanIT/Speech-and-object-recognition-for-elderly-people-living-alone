@@ -1,0 +1,16 @@
+from gtts import gTTS
+
+text = "저녁은 맛있게 드셨나요? 평안한 저녁시간 되세요."
+
+tts = gTTS(text=text, lang='ko')
+
+output_path = "output3.wav"
+
+tts.save(output_path)
+
+print(f"음성 파일이 '{output_path}'로 저장되었습니다.")
+
+
+#실행하기위해 해야하는 것
+#1. pip install gtts
+#2. 실행 !!!!!!

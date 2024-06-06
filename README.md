@@ -92,24 +92,25 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 ### 😂yolov7을 통한 FPDS dataset 학습
 
-학습을 위해 GPU가 필요하므로, colab 환경에서 진행
+* 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/6b842115-d05f-45e4-97b3-ae5d82c55a4d)
 
 
-	
+* yolov7 다운로드	
  	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d15293c1-8e27-4f0d-b233-b948fd59477f)
 
 
+* 관련 라이브러리 설치
 	%cd yolov7 //생성된 yolov7 폴더로 이동
 	pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/38881cbf-64a9-444b-ab34-660e1bd34e49)
 
 
-data.yaml 파일 작성
+* data.yaml 파일 작성
 
 	train : /content/drive/MyDrive/train_for_oss
 	val : /content/drive/MyDrive/valid_for_oss
@@ -118,5 +119,148 @@ data.yaml 파일 작성
 	names: ['-1', '1']
 
 
+* yolov7-custom.yaml 파일 작성
 
+yolov7.yaml 파일에서 class number만 수정
+
+	# parameters
+	nc: 2  # number of classes
+	depth_multiple: 1.0  # model depth multiple
+	width_multiple: 1.0  # layer channel multiple
+	
+	# anchors
+	anchors:
+	  - [12,16, 19,36, 40,28]  # P3/8
+	  - [36,75, 76,55, 72,146]  # P4/16
+	  - [142,110, 192,243, 459,401]  # P5/32
+	
+	# yolov7 backbone
+	backbone:
+	  # [from, number, module, args]
+	  [[-1, 1, Conv, [32, 3, 1]],  # 0
+	  
+	   [-1, 1, Conv, [64, 3, 2]],  # 1-P1/2      
+	   [-1, 1, Conv, [64, 3, 1]],
+	   
+	   [-1, 1, Conv, [128, 3, 2]],  # 3-P2/4  
+	   [-1, 1, Conv, [64, 1, 1]],
+	   [-2, 1, Conv, [64, 1, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [[-1, -3, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [256, 1, 1]],  # 11
+	         
+	   [-1, 1, MP, []],
+	   [-1, 1, Conv, [128, 1, 1]],
+	   [-3, 1, Conv, [128, 1, 1]],
+	   [-1, 1, Conv, [128, 3, 2]],
+	   [[-1, -3], 1, Concat, [1]],  # 16-P3/8  
+	   [-1, 1, Conv, [128, 1, 1]],
+	   [-2, 1, Conv, [128, 1, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [[-1, -3, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [512, 1, 1]],  # 24
+	         
+	   [-1, 1, MP, []],
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-3, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [256, 3, 2]],
+	   [[-1, -3], 1, Concat, [1]],  # 29-P4/16  
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-2, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [[-1, -3, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [1024, 1, 1]],  # 37
+	         
+	   [-1, 1, MP, []],
+	   [-1, 1, Conv, [512, 1, 1]],
+	   [-3, 1, Conv, [512, 1, 1]],
+	   [-1, 1, Conv, [512, 3, 2]],
+	   [[-1, -3], 1, Concat, [1]],  # 42-P5/32  
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-2, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [[-1, -3, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [1024, 1, 1]],  # 50
+	  ]
+	
+	# yolov7 head
+	head:
+	  [[-1, 1, SPPCSPC, [512]], # 51
+	  
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+	   [37, 1, Conv, [256, 1, 1]], # route backbone P4
+	   [[-1, -2], 1, Concat, [1]],
+	   
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-2, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [[-1, -2, -3, -4, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [256, 1, 1]], # 63
+	   
+	   [-1, 1, Conv, [128, 1, 1]],
+	   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+	   [24, 1, Conv, [128, 1, 1]], # route backbone P3
+	   [[-1, -2], 1, Concat, [1]],
+	   
+	   [-1, 1, Conv, [128, 1, 1]],
+	   [-2, 1, Conv, [128, 1, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [-1, 1, Conv, [64, 3, 1]],
+	   [[-1, -2, -3, -4, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [128, 1, 1]], # 75
+	      
+	   [-1, 1, MP, []],
+	   [-1, 1, Conv, [128, 1, 1]],
+	   [-3, 1, Conv, [128, 1, 1]],
+	   [-1, 1, Conv, [128, 3, 2]],
+	   [[-1, -3, 63], 1, Concat, [1]],
+	   
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-2, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [-1, 1, Conv, [128, 3, 1]],
+	   [[-1, -2, -3, -4, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [256, 1, 1]], # 88
+	      
+	   [-1, 1, MP, []],
+	   [-1, 1, Conv, [256, 1, 1]],
+	   [-3, 1, Conv, [256, 1, 1]],
+	   [-1, 1, Conv, [256, 3, 2]],
+	   [[-1, -3, 51], 1, Concat, [1]],
+	   
+	   [-1, 1, Conv, [512, 1, 1]],
+	   [-2, 1, Conv, [512, 1, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [-1, 1, Conv, [256, 3, 1]],
+	   [[-1, -2, -3, -4, -5, -6], 1, Concat, [1]],
+	   [-1, 1, Conv, [512, 1, 1]], # 101
+	   
+	   [75, 1, RepConv, [256, 3, 1]],
+	   [88, 1, RepConv, [512, 3, 1]],
+	   [101, 1, RepConv, [1024, 3, 1]],
+	
+	   [[102,103,104], 1, IDetect, [nc, anchors]],   # Detect(P3, P4, P5)
+	  ]
 

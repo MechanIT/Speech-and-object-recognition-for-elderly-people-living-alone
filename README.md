@@ -44,7 +44,9 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 웹캠 yolov3 테스트 참고자료 : https://kd1658.tistory.com/25
 
 
-* Darknet 실행 과정
+
+
+<Darknet 실행 과정>
 
 
 1. CUDA v12.5 설치

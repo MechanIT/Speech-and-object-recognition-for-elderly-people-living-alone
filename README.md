@@ -7,11 +7,17 @@ https://gram.web.uah.es/data/datasets/fpds/index.html
 FPDS 데이터셋 : 누워 있는 사람과 서 있는 사람을 구분할 수 있는 데이터셋
 
 [진행 과정]
+
 weight files 다운로드
+
 E-FPDS (Code + Annotations) 다운로드
+
 → FPDS_info 폴더 안에 여러 파일 존재. 별 내용 아닌듯
+
 E-FPDS (Script for visualization of annotations. The script must be run in the directory where you desire to visualize annotations). 코드 실행해보고자 함
+
 → 라벨링 어쩌구 하길래 라벨링 관련 내용 있는 줄 알았음. 근데 알고보니 이미지 하나씩 보면서 라벨링 하는 코드였음
+
 → 실행해보려고 했는데 여러 모듈 다운받아야 해서 포기함. 할 필요도 없을 듯
 
 (gi 다운받으려면 PyGObject 설치해야 한대서, 이를 설치 중 에러 발생)

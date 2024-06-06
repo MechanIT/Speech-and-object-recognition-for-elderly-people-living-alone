@@ -46,28 +46,46 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 * Darknet 실행 과정
 
+
 1. CUDA v12.5 설치
+
+
 경로 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5
 
 
 2. cuDNN v8.9.7 설치
+
+
 https://developer.nvidia.com/rdp/cudnn-archive
+
+
 압축파일 풀고 안에 있는 파일 4개를 CUDA 경로에 복사
 
 
 3. OpenCV 설치
+
+
 경로  C:\opencv
 
 
 4. Darknet 설치
+
+
 https://github.com/AlexeyAB/darknet
+
+
 경로 C:\darknet-master
 
 
 5. Darknet 빌드
+
+
 https://m.blog.naver.com/estern/221828977313
 
+
 -> 지속적으로 빌드 에러가 발생하여, 포기하고 모델을 새로 학습하기로 결정!!
+
+
 
 
 ### 😂yolov7을 통한 FPDS dataset 학습

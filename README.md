@@ -19,7 +19,7 @@ FPDS 데이터셋 : <https://gram.web.uah.es/data/datasets/fpds/index.html>
 
 ## 진행 과정
 
-###  using pretrained weight file
+###  😂using pretrained weight file
 
 
 #### 1. weight files 다운로드
@@ -44,7 +44,7 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 웹캠 yolov3 테스트 참고자료 : https://kd1658.tistory.com/25
 
 
-Darknet 실행 과정
+* Darknet 실행 과정
 
 1. CUDA v12.5 설치
 경로 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5
@@ -70,7 +70,7 @@ https://m.blog.naver.com/estern/221828977313
 -> 지속적으로 빌드 에러가 발생하여, 포기하고 모델을 새로 학습하기로 결정!!
 
 
-### yolov7을 통한 FPDS dataset 학습
+### 😂yolov7을 통한 FPDS dataset 학습
 
 	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 

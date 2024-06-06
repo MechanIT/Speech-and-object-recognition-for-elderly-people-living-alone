@@ -109,6 +109,13 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/38881cbf-64a9-444b-ab34-660e1bd34e49)
 
 
+data.yaml 파일 작성
+
+	train : /content/drive/MyDrive/train_for_oss
+	val : /content/drive/MyDrive/valid_for_oss
+	
+	nc : 2
+	names: ['-1', '1']
 
 
 

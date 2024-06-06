@@ -19,7 +19,7 @@ FPDS 데이터셋 : <https://gram.web.uah.es/data/datasets/fpds/index.html>
 
 ## 진행 과정
 
-###  😂using pretrained weight file
+###  📌using pretrained weight file
 
 
 #### 1. weight files 다운로드
@@ -85,12 +85,12 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 	* https://m.blog.naver.com/estern/221828977313
 
 
-	* -> 지속적으로 빌드 에러가 발생하여, 포기하고 모델을 새로 학습하기로 결정!!
+	  **-> 지속적으로 빌드 에러가 발생하여, 포기하고 모델을 새로 학습하기로 결정!!**
 
 
 
 
-### 😂yolov7을 통한 FPDS dataset 학습
+### 📌yolov7을 통한 FPDS dataset 학습
 
 * 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
 

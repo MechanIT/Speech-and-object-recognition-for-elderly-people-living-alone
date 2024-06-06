@@ -92,44 +92,44 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 ### 📌yolov7을 통한 FPDS dataset 학습
 
-* 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
+1. 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/6b842115-d05f-45e4-97b3-ae5d82c55a4d)
 
 
-* yolov7 다운로드	
+2. yolov7 다운로드	
  	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d15293c1-8e27-4f0d-b233-b948fd59477f)
 
 
-* 관련 라이브러리 설치
+3. 관련 라이브러리 설치
 	%cd yolov7 //생성된 yolov7 폴더로 이동
 	pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
 
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/38881cbf-64a9-444b-ab34-660e1bd34e49)
 
 
-* data.yaml 파일 작성
+4. /content/data.yaml 파일 작성
 
-		train : /content/train_for_oss/train_for_oss
-		val : /content/valid_for_oss/valid_for_oss
+		train : /content/train_for_oss/train_for_oss_sep
+		val : /content/valid_for_oss/valid_for_oss_sep
 		
 		nc : 2
 		names: ['-1', '1']
 
 
-* yolov7-custom.yaml 파일 작성
+5. /content/yolov7/cfg/training/yolov7-custom.yaml 파일 작성
 
 
-  yolov7.yaml 파일에서 class number만 수정
+* yolov7.yaml 파일에서 class number만 수정
 
 		# parameters
 		nc: 2  # number of classes
 		depth_multiple: 1.0  # model depth multiple
 		width_multiple: 1.0  # layer channel multiple
 
-* yolov7 학습
+6. yolov7 학습
 
 		%cd /content/yolov7
 		!python train.py --batch-size 8 --epochs 100 --data /content/data.yaml --cfg /content/yolov7/cfg/training/yolov7-custom.yaml --name yolov7_for_oss --weights yolov7.pt

@@ -2,6 +2,8 @@
 
 
 ### yolov9 시도
+-> https://yunwoong.tistory.com/319 <br/> <br/> 
+
 ### flask / webSocket을 이용한 webpage cam streaming 
 -> Flask (Python 웹 프레임워크): Python 백엔드를 구성하는 데 사용됩니다. <br/> 
 

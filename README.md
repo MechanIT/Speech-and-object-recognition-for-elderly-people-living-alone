@@ -112,17 +112,17 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 4. /content/data.yaml 파일 작성
 
-	train : /content/train_for_oss/train_for_oss_sep
-	val : /content/valid_for_oss/valid_for_oss_sep
-	
-	nc : 2
-	names: ['-1', '1']
+		train : /content/train_for_oss/train_for_oss_sep
+		val : /content/valid_for_oss/valid_for_oss_sep
+		
+		nc : 2
+		names: ['-1', '1']
 
 
 5. /content/yolov7/cfg/training/yolov7-custom.yaml 파일 작성
 
 
---> yolov7.yaml 파일에서 class number만 수정
+	--> yolov7.yaml 파일에서 class number만 수정
 
 		# parameters
 		nc: 2  # number of classes

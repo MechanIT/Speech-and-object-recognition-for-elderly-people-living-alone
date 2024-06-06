@@ -112,20 +112,20 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 * data.yaml 파일 작성
 
-	train : /content/drive/MyDrive/train_for_oss
-	val : /content/drive/MyDrive/valid_for_oss
-	
-	nc : 2
-	names: ['-1', '1']
+		train : /content/drive/MyDrive/train_for_oss
+		val : /content/drive/MyDrive/valid_for_oss
+		
+		nc : 2
+		names: ['-1', '1']
 
 
 * yolov7-custom.yaml 파일 작성
   yolov7.yaml 파일에서 class number만 수정
 
-	# parameters
-	nc: 2  # number of classes
-	depth_multiple: 1.0  # model depth multiple
-	width_multiple: 1.0  # layer channel multiple
+		# parameters
+		nc: 2  # number of classes
+		depth_multiple: 1.0  # model depth multiple
+		width_multiple: 1.0  # layer channel multiple
 
 	
 

@@ -28,10 +28,13 @@ FPDS 웹페이지에 yolov3으로 학습시킨 weight파일 존재, 이를 다�
 
 #### 3. Darknet을 통한 객체 인식
 
-yolov3을 사용하기 위한 Darknet 환경설정 https://kd1658.tistory.com/23
-웹캠 yolov3 테스트 https://kd1658.tistory.com/25
+yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658.tistory.com/23
 
-Darknet 실행
+
+웹캠 yolov3 테스트 참고자료 : https://kd1658.tistory.com/25
+
+
+Darknet 실행 과정
 
 1. CUDA v12.5 설치
 경로 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5

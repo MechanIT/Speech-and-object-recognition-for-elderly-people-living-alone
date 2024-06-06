@@ -9,73 +9,19 @@ FPDS 데이터셋 : 누워 있는 사람과 서 있는 사람을 구분할 수 �
 
 [진행 과정]
 
-weight files 다운로드
+# Detecting fallen people lying on the floor using pretrained weight file
+1. weight files 다운로드
 
-E-FPDS (Code + Annotations) 다운로드
+![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/4ac9f868-0188-47c0-8104-b2225508cc70)
 
-→ FPDS_info 폴더 안에 여러 파일 존재. 별 내용 아닌듯
 
-E-FPDS (Script for visualization of annotations. The script must be run in the directory where you desire to visualize annotations). 코드 실행해보고자 함
-
-→ 라벨링 어쩌구 하길래 라벨링 관련 내용 있는 줄 알았음. 근데 알고보니 이미지 하나씩 보면서 라벨링 하는 코드였음
-
-→ 실행해보려고 했는데 여러 모듈 다운받아야 해서 포기함. 할 필요도 없을 듯
-
-(gi 다운받으려면 PyGObject 설치해야 한대서, 이를 설치 중 에러 발생)
-(yolo_test) C:\Users\cdsl>pip3 install PyGObject
-Collecting PyGObject
-  Downloading pygobject-3.48.2.tar.gz (715 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 715.2/715.2 kB 1.7 MB/s eta 0:00:00
-  Installing build dependencies ... done
-  Getting requirements to build wheel ... done
-  Installing backend dependencies ... done
-  Preparing metadata (pyproject.toml) ... error
-  error: subprocess-exited-with-error
-
-  × Preparing metadata (pyproject.toml) did not run successfully.
-  │ exit code: 1
-  ╰─> [25 lines of output]
-      + meson setup C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead\.mesonpy-2iebsb_9 -Dbuildtype=release -Db_ndebug=if-release -Db_vscrt=md -Dtests=false -Dwheel=true --wrap-mode=nofallback --native-file=C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead\.mesonpy-2iebsb_9\meson-python-native-file.ini
-      The Meson build system
-      Version: 1.4.0
-      Source dir: C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead
-      Build dir: C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead\.mesonpy-2iebsb_9
-      Build type: native build
-      Project name: pygobject
-      Project version: 3.48.2
-      Activating VS 17.9.2
-      C compiler for the host machine: cl (msvc 19.39.33521 "Microsoft (R) C/C++ 최적화 컴파일러 버전 19.39.33521(x64)")
-      C linker for the host machine: link link 14.39.33521.0
-      Host machine cpu family: x86_64
-      Host machine cpu: x86_64
-      Program python3 found: YES (C:\Users\cdsl\anaconda3\envs\yolo_test\python.exe)
-      Run-time dependency python found: YES 3.11
-      Did not find pkg-config by name 'pkg-config'
-      Found pkg-config: NO
-      Found CMake: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.EXE (3.28.0)
-      Run-time dependency gobject-introspection-1.0 found: NO (tried pkgconfig and cmake)
-      Not looking for a fallback subproject for the dependency gobject-introspection-1.0 because:
-      Use of fallback dependencies is disabled.
-
-      ..\meson.build:29:9: ERROR: Dependency 'gobject-introspection-1.0' is required but not found.
-
-      A full log can be found at C:\Users\cdsl\AppData\Local\Temp\pip-install-53b_am02\pygobject_e4ffd54a8015415abcffccdea0d5cead\.mesonpy-2iebsb_9\meson-logs\meson-log.txt
-      [end of output]
-
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-error: metadata-generation-failed
-
-× Encountered error while generating package metadata.
-╰─> See above for output.
-
-note: This is an issue with the package mentioned above, not pip.
-hint: See above for details.
-
-원래 코드에서 weight 파일만 바꿔서 실행했으나, 사람 아예 인식 불가
+2. 원래 코드에서 weight 파일만 바꿔서 실행했으나, 사람 아예 인식 불가
 
 → 아예 다른 방법으로 진행
-→ Darknet 상에서 yolo와 weigth파일을 설정해서 실행 가능한 듯으로 보임
+→ Darknet 상에서 yolo와 weigth파일을 설정해서 실행 가능한 것으로 보임
 
+
+3. Darknet을 통해 객체 인식
 
 yolov3을 사용하기 위한 Darknet 환경설정 https://kd1658.tistory.com/23
 웹캠 yolov3 테스트 https://kd1658.tistory.com/25

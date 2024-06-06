@@ -93,6 +93,10 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 ### 😂yolov7을 통한 FPDS dataset 학습
 
 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
+
+![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/6b842115-d05f-45e4-97b3-ae5d82c55a4d)
+
+
 	
  	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 

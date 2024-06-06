@@ -129,5 +129,8 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 		depth_multiple: 1.0  # model depth multiple
 		width_multiple: 1.0  # layer channel multiple
 
+* yolov7 학습
+
+	!python train.py --batch-size 8 --epochs 100 --data /content/data.yaml --cfg /content/yolov7/cfg/training/yolov7-custom.yaml --name yolov7_for_oss --weights yolov7_for_oss.pt
 	
 

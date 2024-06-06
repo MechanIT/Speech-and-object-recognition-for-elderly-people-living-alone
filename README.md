@@ -188,3 +188,18 @@ OpenCV 4.0.1
 → Visual Studio 2015년 버전으로 설치 필요할 듯
 	
 
+
+0606 yolov7 코랩에서 학습 진행
+
+!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
+![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d15293c1-8e27-4f0d-b233-b948fd59477f)
+
+%cd yolov7 //생성된 yolov7 폴더로 이동
+pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
+![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/38881cbf-64a9-444b-ab34-660e1bd34e49)
+
+
+
+
+
+

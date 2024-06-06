@@ -14,7 +14,7 @@ FPDS 데이터셋 : 누워 있는 사람과 서 있는 사람을 구분할 수 �
 
 #### 1. weight files 다운로드
 
-![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/4ac9f868-0188-47c0-8104-b2225508cc70)
+FPDS 웹페이지에 yolov3으로 학습시킨 weight파일 존재, 이를 다운로드
 
 
 

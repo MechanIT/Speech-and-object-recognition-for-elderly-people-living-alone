@@ -152,7 +152,7 @@ C:\opencv\opencv\build\include;..\..\include;..\..\3rdparty\stb\include;..\..\3r
 
 추가 라이브러리 디렉터리	$(CUDA_PATH)\lib\$(PlatformName);$(cudnn)\lib\x64;..\..\3rdparty\pthreads\lib;%(AdditionalLibraryDirectories);C:\opencv\opencv\build\x64\vc15\lib;
 
-	시도 2) opencv만 추가
+시도 2) opencv만 추가
 	
 추가 포함 디렉터리	C:\opencv\opencv\build\include;..\..\include;..\..\3rdparty\stb\include;..\..\3rdparty\pthreads\include;%(AdditionalIncludeDirectories);
 

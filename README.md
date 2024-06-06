@@ -1,5 +1,4 @@
 # Speech-and-object-recognition-for-elderly-people-living-alone
-
 ---
 
 # Getting Started

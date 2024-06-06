@@ -120,6 +120,8 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 
 * yolov7-custom.yaml 파일 작성
+
+
   yolov7.yaml 파일에서 class number만 수정
 
 		# parameters

@@ -5,6 +5,7 @@ from pydub.playback import play
 import subprocess
 import concurrent.futures
 
+
 # 음성 파일 재생 함수
 def play_sound(file_name):
     try:

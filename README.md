@@ -143,7 +143,7 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 
 
-**드라이브 옮길 때 수정사항**
+**<드라이브 옮길 때 수정사항>**
 
 1. backup 계정에 있는 yolov7 사본 생성
 2. 드라이브에 dataset_for_oss.zip 파일 올리기
@@ -151,6 +151,7 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 4. dataset 폴더에서 zip파일 압축 해제
 5. dataset 안에 있는 yolov7-custom.yaml 파일을 yolov7>cfg>training 폴더에 옮기기
 6. dataset 안에 있는 data.yaml 파일에서 train, val 폴더 경로 수정
+   
 		 train : /content/dataset/dataset_for_oss/train/images
 		 val : /content/dataset/dataset_for_oss/valid/images
 		 

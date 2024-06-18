@@ -1,3 +1,6 @@
+'''
+    안부 음성 출력 -> 사용자 응답 인식 -> 대답 음성 출력
+'''
 from gtts import gTTS
 import pygame
 import io
@@ -64,16 +67,10 @@ if __name__ == "__main__":
     print("음성 인식 시작...")
     response = recognize_speech_from_mic(recognizer, microphone)
     
-    # if response["success"]:
-    #     print("인식된 텍스트: {}".format(response["transcription"]))    
-    #     recognition_success_msg = "좋은 하루 보내세용."
-    #     play_text(recognition_success_msg)
-    # else:
-    #     print("에러: {}".format(response["error"]))
     if response["success"]:
         if response["transcription"]:
             print("인식된 텍스트: {}".format(response["transcription"]))
-            success_message = "좋은 하루 보내세용."
+            success_message = "좋은 하루 보내세용." # 텍스트 리스트 추가하여 임의의 요소 출력
             print('사용자의 음성이 정상적으로 인식 되었습니다.')
             play_text(success_message)
         else:

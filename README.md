@@ -132,6 +132,13 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 6. yolov7 학습
 
 		%cd /content/yolov7
+
+
+
+가은 72
+문정 75
+세영 134
+지수 
 		!python train.py --batch-size 8 --epochs 100 --data /content/data.yaml --cfg /content/yolov7/cfg/training/yolov7-custom.yaml --name yolov7_for_oss --weights yolov7.pt
 	
 

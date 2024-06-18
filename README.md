@@ -97,17 +97,13 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/6b842115-d05f-45e4-97b3-ae5d82c55a4d)
 
 
-2. yolov7 다운로드	
- 	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
-
-![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d15293c1-8e27-4f0d-b233-b948fd59477f)
+2. yolov7 다운로드
+   	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 
 
 3. 관련 라이브러리 설치
 	%cd yolov7 //생성된 yolov7 폴더로 이동
 	pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
-
-![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/38881cbf-64a9-444b-ab34-660e1bd34e49)
 
 
 4. /content/data.yaml 파일 작성
@@ -143,6 +139,6 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 총 382
 
 306 train, 76 validation 8:2
-		!python train.py --batch-size 8 --epochs 100 --data /content/data.yaml --cfg /content/yolov7/cfg/training/yolov7-custom.yaml --name yolov7_for_oss --weights yolov7.pt
+
 	
 

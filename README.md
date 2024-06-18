@@ -102,7 +102,8 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 
 3. 관련 라이브러리 설치
-	%cd yolov7 //생성된 yolov7 폴더로 이동
+	
+ 	%cd yolov7 //생성된 yolov7 폴더로 이동
 	pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
 
 

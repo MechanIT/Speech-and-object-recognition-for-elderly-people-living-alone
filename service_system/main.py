@@ -1,5 +1,6 @@
 import subprocess
 
+
 def main():
     try:
         # sound_generation 실행

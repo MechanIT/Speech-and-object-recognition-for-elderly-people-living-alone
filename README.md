@@ -112,8 +112,8 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 
 4. /content/data.yaml 파일 작성
 
-		train : /content/train_for_oss/train_for_oss_sep
-		val : /content/valid_for_oss/valid_for_oss_sep
+		train : /content/train_for_oss/train_for_oss_sep/images
+		val : /content/valid_for_oss/valid_for_oss_sep/images
 		
 		nc : 2
 		names: ['-1', '1']
@@ -132,6 +132,7 @@ yolov3을 사용하기 위한 Darknet 환경설정 참고자료 : https://kd1658
 6. yolov7 학습
 
 		%cd /content/yolov7
+		!python train.py --batch-size 8 --epochs 30 --img 640 480  --data /content/data.yaml --cfg /content/yolov7/cfg/training/yolov7-custom.yaml --name yolov7_for_oss --weights yolov7.pt	
 
 
 

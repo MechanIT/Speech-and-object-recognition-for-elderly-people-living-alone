@@ -1,5 +1,5 @@
 """
-  git clone yolov9 후 해당 경로에서 실행시킴
+  git clone yolov5 후 해당 경로에서 실행시킴
 """
 import torch
 import cv2

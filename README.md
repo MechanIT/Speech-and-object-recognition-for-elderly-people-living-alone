@@ -9,7 +9,7 @@
 학습된 weight 파일 : [https://drive.google.com/file/d/1TxBgH3QAgy9GKMBtFIzrcpQZuciRXTmR/view?usp=sharing](https://drive.google.com/file/d/1ideXUrj1fqiu3NaD1xfzMq_eik1AqVll/view?usp=sharing)
 
 
-실행 방법
+## 실행 방법
 1. weight 파일 다운로드
 2. yolov7 github 전체 코드 다운로드 (링크 : https://github.com/WongKinYiu/yolov7/tree/main)
 3. 아나콘다 가상환경 설정

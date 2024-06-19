@@ -8,6 +8,19 @@
 
 학습된 weight 파일 : [https://drive.google.com/file/d/1TxBgH3QAgy9GKMBtFIzrcpQZuciRXTmR/view?usp=sharing](https://drive.google.com/file/d/1ideXUrj1fqiu3NaD1xfzMq_eik1AqVll/view?usp=sharing)
 
+
+실행 방법
+1. weight 파일 다운로드
+2. yolov7 github 전체 코드 다운로드 (링크 : https://github.com/WongKinYiu/yolov7/tree/main)
+3. 아나콘다 가상환경 설정
+		conda create -n yolov7_env python=3.7.13
+		conda activate yolov7_env
+		pip install -r "yolov7 코드 다운 받은 경로\yolov7\requirements.txt"
+   		
+5. yolov7 코드 다운 받은 경로로 weight 파일 옮기기, 이 경로에서 다음 명령어 실행
+		
+		python detect.py --weights best_final.pt --conf 0.25 --img-size 640 --source 0
+
 ## 프로젝트 소개
 독거 노인이 홀로 생활하다가 갑자기 쓰러질 경우, 이를 인지하여 위급 상황임을 비상연락망으로 알리는 시스템을 구축하고자 한다. 
 

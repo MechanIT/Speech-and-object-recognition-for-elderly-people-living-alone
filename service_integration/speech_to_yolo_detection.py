@@ -51,6 +51,8 @@ def recognize_speech_from_mic(recognizer, microphone):
         response["transcription"] = recognizer.recognize_google(audio, language='ko-KR')
         if "도와" in response["transcription"]: # (eg. "'도와'줘", "'도와'주세요!")
             # 위험상황3: 언제든 도움을 요청하는 음성 메세지가 인식될 때
+            print("(!) 사용자의 직접 도움 요청 -> 비상연락")
+            play_text("사용자가 직접 도움을 요청하였습니다. 비상 메일을 발송합니다.")
             send_alert()
             return None
     except sr.RequestError:
@@ -61,7 +63,7 @@ def recognize_speech_from_mic(recognizer, microphone):
 
     return response
 
-def detect_motion(prev_frame, current_frame, threshold_value=50, min_contour_area=1000):
+def detect_motion(prev_frame, current_frame, threshold_value=100, min_contour_area=2000):
     diff_frame = cv2.absdiff(prev_frame, current_frame) # 프레임 차이 계산
     gray = cv2.cvtColor(diff_frame, cv2.COLOR_BGR2GRAY) # 그레이스케일 변환
     blur = cv2.GaussianBlur(gray, (5, 5), 0) # 가우시안 블러 적용
@@ -129,43 +131,97 @@ class ObjDetection(threading.Thread):
                         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
                         cv2.putText(frame, f'{label_name} {conf:.2f}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36, 255, 12), 2)
 
-
-            if person_detected:
-                if prev_frame is None:
-                    prev_frame = frame
-                    continue
-
-                if detect_motion(prev_frame, frame):
-                    last_seen = time.time()
-                    # print("사용자가 정상적으로 움직이고 있습니다.")
-                    # play_text("사용자가 정상적으로 움직이고 있습니다.")
-                    # break 
-                else:
-                    if time.time() - last_seen > 15:  # 15초 동안 움직임이 없으면
-                        print("사용자에게서 비정상적인 상황이 감지되었습니다.")
-                        play_text("움직임이 감지되지 않았습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.")
-                        # 위험상황1: 안부 응답x, 카메라에 인식o, 움직이지x
-                        send_alert()
-                        break 
-                
-                prev_frame = frame
-            else:
-                play_text("안녕하신지 확인하기 위해 카메라 앞으로 와주세요") #멘트 추천..
-                time.sleep(15)  # 15초 기다림
-                if not person_detected:
-                    print("사용자에게서 비정상적인 상황이 감지되었습니다.")
-                    play_text("카메라 앞에 사용자가 나타나지 않습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.")
-                    # 위험상황2: 안부 응답x, 카메라에 인식x, 호출 반응x
-                    send_alert()
-                    break 
-                # else:
-                #     print("사용자가 정상적으로 카메라 앞에 나타났습니다.")
-                #     play_text("사용자가 정상적으로 카메라 앞에 나타났습니다.")
-                #     break
-
             cv2.imshow('YOLOv10 Detection', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+            
+            if person_detected:
+                last_seen = time.time()
+                print("사용자가 인식됨. 움직임 추가 확인")
+                play_text("사용자가 인식되었습니다. 정확한 확인을 위해 움직여주세요")
+                
+                # 10초 동안 움직임 감지
+                movement_detected = False
+                start_time = time.time()
+                while time.time() - start_time < 10:
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    if prev_frame is not None and detect_motion(prev_frame, frame):
+                        movement_detected = True
+                        break
+                    prev_frame = frame
+                    time.sleep(1)
+
+                if movement_detected:
+                    print("정상적인 움직임 감지 : 확인 완료")
+                    play_text("정상적인 움직임이 감지되었습니다. 확인 완료.")
+                    break  # 정상 루프 종료
+                else:
+                    print("움직임이 감지되지 않았습니다. 사용자에게서 비정상적인 상황이 감지되었습니다.")
+                    play_text("움직임이 감지되지 않습니다. 비상 메일을 발송합니다.")
+                    # 위험상황1: 안부 응답x, 카메라에 인식o, 움직이지x
+                    # send_alert()
+                    break  # 루프 종료
+
+            else: # 카메라 앞으로 사용자 호출
+                print("사용자가 시야에서 확인되지 않습니다.")
+                play_text("확인을 위해 카메라 앞으로 와주세요")
+                # 사용자가 보이지 않을 때 바로 루프 종료x 대기
+                # for _ in range(20):  # 10초 동안 0.5초 간격으로 프레임을 확인
+                start_time = time.time()
+                while time.time() - start_time < 10:
+                    time.sleep(0.5)
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    results = model(frame)
+                    person_detected = any(model.names[int(cls_id)] == "person" for result in results for cls_id in result.boxes.cls.numpy())
+                    if person_detected:
+                        print("사용자가 나타났습니다 : 정상 종료")
+                        play_text("사용자가 정상적으로 확인되었습니다.")
+                        prev_frame = frame
+                        #break
+                        return
+                    
+                if not person_detected:
+                    print("시야 내에서 사용자를 확인할 수 없습니다. 사용자에게서 비정상적인 상황이 감지되었습니다.")
+                    play_text("사용자가 보이지 않습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.")
+                    # 위험상황2: 안부 응답x, 카메라에 인식x, 호출 반응x
+                    send_alert()
+                    break  # 비정상 루프 종료
+            # if person_detected:
+            #     if prev_frame is None:
+            #         prev_frame = frame
+            #         continue
+
+            #     if detect_motion(prev_frame, frame):
+            #         last_seen = time.time()
+            #         # print("사용자가 정상적으로 움직이고 있습니다.")
+            #         # play_text("사용자가 정상적으로 움직이고 있습니다.")
+            #         # break 
+            #     else:
+            #         if time.time() - last_seen > 5:  # 5초 동안 움직임이 없으면
+            #             print("사용자에게서 비정상적인 상황이 감지되었습니다.")
+            #             play_text("움직임이 감지되지 않았습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.")
+            #             # 위험상황1: 안부 응답x, 카메라에 인식o, 움직이지x
+            #             send_alert()
+            #             break 
+                
+            #     prev_frame = frame
+            # else:
+            #     play_text("안녕하신지 확인하기 위해 카메라 앞으로 와주세요") #멘트 추천..
+            #     time.sleep(10)  #10초 기다림
+            #     if not person_detected:
+            #         print("사용자에게서 비정상적인 상황이 감지되었습니다.")
+            #         play_text("카메라 앞에 사용자가 나타나지 않습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.")
+            #         # 위험상황2: 안부 응답x, 카메라에 인식x, 호출 반응x
+            #         send_alert()
+            #         break 
+            #     # else:
+            #     #     print("사용자가 정상적으로 카메라 앞에 나타났습니다.")
+            #     #     play_text("사용자가 정상적으로 카메라 앞에 나타났습니다.")
+            #     #     break
 
         cap.release()
         cv2.destroyAllWindows()
@@ -193,7 +249,7 @@ def regular_check(yolo_thread):
     if response["success"]:
         if response["transcription"]:
             print("인식된 텍스트: {}".format(response["transcription"]))
-            success_message = "네, 좋은 하루 보내세용."
+            success_message = "네, 좋은 하루 보내세요."
             print('사용자의 음성이 정상적으로 인식 되었습니다.')
             play_text(success_message)
         else:
@@ -227,6 +283,7 @@ if __name__ == "__main__":
     while True:
         schedule.run_pending()
         time.sleep(1)
+        
         if not yolo_thread.is_alive():
             yolo_thread = ObjDetection()
-
+            

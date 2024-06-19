@@ -2,6 +2,7 @@ import argparse
 import time
 from pathlib import Path
 import subprocess  # subprocess 모듈을 추가하여 외부 스크립트 실행
+import sys  # 시스템 종료를 위해 sys 모듈을 임포트
 
 import cv2
 import torch
@@ -15,14 +16,27 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
+from gtts import gTTS
+from playsound import playsound
+
 # 이전 프레임의 바운딩 박스를 저장할 변수
 prev_boxes = None
 person_detected = False  # 사람 인지가 한번이라도 되었는지 여부
 movement_detected = False  # 움직임이 감지되었는지 여부
 alert_executed = False  # emergency_alert.py가 실행되었는지 여부
+person_alert_executed = False  # 사람이 감지되지 않았을 때 음성이 한 번만 출력되도록 하는 플래그
+no_person_start_time = None  # 사람이 감지되지 않은 시간 기록
+goodbye_alert_executed = False  # "좋은 하루 보내세요" 메시지가 한 번만 출력되도록 하는 플래그
+alert_delay_time = None  # 음성 출력 후 경고 실행 시간을 기록하는 변수
+webpage_alert_executed = False  # webpage_view.py가 실행되었는지 여부
+
+def play_text(text):
+    tts = gTTS(text=text, lang='ko')
+    tts.save("alert.mp3")
+    playsound("alert.mp3")
 
 def detect(save_img=False):
-    global prev_boxes, person_detected, movement_detected, alert_executed
+    global prev_boxes, person_detected, movement_detected, alert_executed, person_alert_executed, no_person_start_time, goodbye_alert_executed, alert_delay_time, webpage_alert_executed
     source, weights, view_img, save_txt, imgsz, trace = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size, not opt.no_trace
     save_img = not opt.nosave and not source.endswith('.txt')  # save inference images
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
@@ -106,7 +120,6 @@ def detect(save_img=False):
         # Process detections
         current_boxes = []
         person_detected_in_frame = False
-        fallen_person_detected = False  # fallen person 감지 여부
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = path[i], '%g: ' % i, im0s[i].copy(), dataset.count
@@ -141,21 +154,26 @@ def detect(save_img=False):
                     # 바운딩 박스 크기 추출
                     current_boxes.append(xyxy)
 
-                    # 사람 감지 시 메시지 출력
+                    # 사람 감지 시 메시지 출력 및 프로그램 종료
                     if int(cls) == 0:  # 0번 클래스가 사람이므로, 이 값은 모델에 따라 다를 수 있음
                         person_detected_in_frame = True
                         if not person_detected:
                             print("사람이 감지되었습니다")
                             person_detected = True
+                        person_alert_executed = False  # 사람이 감지되면 알림 플래그 초기화
+                        no_person_start_time = None  # 사람이 감지되면 시간을 초기화
+                        if not goodbye_alert_executed:
+                            play_text("좋은 하루 보내세요")
+                            goodbye_alert_executed = True  # "좋은 하루 보내세요" 메시지가 한 번만 출력되도록 설정
+                            sys.exit()  # 사람 감지 시 프로그램 종료
 
-                    # # fallen person 감지 시 메시지 출력 및 동작 수행
-                    # if int(cls) == names.index('fallen person'):
-                    #     fallen_person_detected = True
-                    #     print("X")
-                    #     if not alert_executed:
-                    #         # emergency_alert.py 스크립트 실행
-                    #         subprocess.run(['python', 'emergency_alert.py'])
-                    #         alert_executed = True
+                    # fallen person 감지 시 메시지 출력 및 동작 수행
+                    if int(cls) == names.index('fallen person'):  # 'fallen person' 클래스의 인덱스를 사용
+                        print("Fallen person detected")
+                        if not webpage_alert_executed:
+                            subprocess.run(['python', 'webpage_view.py'])
+                            webpage_alert_executed = True
+                            sys.exit()
 
             # 움직임 감지
             movement_detected = False
@@ -164,17 +182,17 @@ def detect(save_img=False):
                     if len(prev_box) == 4 and len(current_box) == 4:
                         prev_area = (prev_box[2] - prev_box[0]) * (prev_box[3] - prev_box[1])
                         current_area = (current_box[2] - current_box[0]) * (current_box[3] - current_box[1])
-                        if abs(prev_area - current_area) > 100:  # 임계값 설정
+                        if abs(prev_area - current_area) > 7000:  # 임계값 설정
                             print("움직임이 감지되었습니다")
                             movement_detected = True
                             break
 
             if 'fallen person' in s:
-                print("X")
-                if not alert_executed:
-                    # emergency_alert.py 스크립트 실행
-                    subprocess.run(['python', 'emergency_alert.py'])
-                    alert_executed = True
+                print("Fallen person detected")
+                if not webpage_alert_executed:
+                    subprocess.run(['python', 'webpage_view.py'])
+                    webpage_alert_executed = True
+                    sys.exit()
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({(1E3 * (t2 - t1)):.1f}ms) Inference, ({(1E3 * (t3 - t2)):.1f}ms) NMS')
@@ -205,6 +223,28 @@ def detect(save_img=False):
                     vid_writer.write(im0)
 
         prev_boxes = current_boxes  # 현재 프레임의 바운딩 박스를 이전 프레임으로 저장
+
+        # 사람이 감지되지 않았을 때 음성 메시지 출력 및 시간 기록
+        if not person_detected_in_frame:
+            if no_person_start_time is None:
+                no_person_start_time = time.time()
+            elif time.time() - no_person_start_time > 10:
+                if not alert_executed:
+                    subprocess.run(['python', 'emergency_alert.py'])
+                    alert_executed = True
+                    
+                if not webpage_alert_executed:
+                    subprocess.run(['python', 'webpage_view.py'])
+                    webpage_alert_executed = True
+                    sys.exit()
+                    
+            if not person_alert_executed:
+                text_to_speak = '카메라에 인식되지 않았습니다. 카메라 앞으로 와주세요'
+                play_text(text_to_speak)
+                person_alert_executed = True  # 음성 메시지를 한 번만 출력하도록 플래그 설정
+                alert_delay_time = time.time()  # 음성 출력 시점 기록
+        else:
+            no_person_start_time = None  # 사람이 감지되면 시간을 초기화
 
     if save_txt or save_img:
         s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
@@ -244,3 +284,4 @@ if __name__ == '__main__':
                 strip_optimizer(opt.weights)
         else:
             detect()
+

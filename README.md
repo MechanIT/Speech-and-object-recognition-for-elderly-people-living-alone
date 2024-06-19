@@ -1,5 +1,12 @@
 # Speech-and-object-recognition-for-elderly-people-living-alone
 
+yolov7 모델 사용
+
+
+사용한 dataset : https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing
+
+
+학습된 weight 파일 : https://drive.google.com/file/d/1TxBgH3QAgy9GKMBtFIzrcpQZuciRXTmR/view?usp=sharing
 
 ## 프로젝트 소개
 독거 노인이 홀로 생활하다가 갑자기 쓰러질 경우, 이를 인지하여 위급 상황임을 비상연락망으로 알리는 시스템을 구축하고자 한다. 

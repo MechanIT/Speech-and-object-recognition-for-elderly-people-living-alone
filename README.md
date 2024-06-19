@@ -13,6 +13,7 @@
 1. weight 파일 다운로드
 2. yolov7 github 전체 코드 다운로드 (링크 : https://github.com/WongKinYiu/yolov7/tree/main)
 3. 아나콘다 가상환경 설정
+
 		conda create -n yolov7_env python=3.7.13
 		conda activate yolov7_env
 		pip install -r "yolov7 코드 다운 받은 경로\yolov7\requirements.txt"

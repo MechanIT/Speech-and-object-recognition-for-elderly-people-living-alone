@@ -1,6 +1,6 @@
 # Speech-and-object-recognition-for-elderly-people-living-alone
 
-yolov7 모델 사용
+## yolov7 모델 사용
 
 
 사용한 dataset : https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing

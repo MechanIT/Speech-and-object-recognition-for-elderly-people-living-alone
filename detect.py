@@ -19,9 +19,10 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized,
 prev_boxes = None
 person_detected = False  # 사람 인지가 한번이라도 되었는지 여부
 movement_detected = False  # 움직임이 감지되었는지 여부
+alert_executed = False  # emergency_alert.py가 실행되었는지 여부
 
 def detect(save_img=False):
-    global prev_boxes, person_detected, movement_detected
+    global prev_boxes, person_detected, movement_detected, alert_executed
     source, weights, view_img, save_txt, imgsz, trace = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size, not opt.no_trace
     save_img = not opt.nosave and not source.endswith('.txt')  # save inference images
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
@@ -105,6 +106,7 @@ def detect(save_img=False):
         # Process detections
         current_boxes = []
         person_detected_in_frame = False
+        fallen_person_detected = False  # fallen person 감지 여부
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = path[i], '%g: ' % i, im0s[i].copy(), dataset.count
@@ -146,6 +148,15 @@ def detect(save_img=False):
                             print("사람이 감지되었습니다")
                             person_detected = True
 
+                    # # fallen person 감지 시 메시지 출력 및 동작 수행
+                    # if int(cls) == names.index('fallen person'):
+                    #     fallen_person_detected = True
+                    #     print("X")
+                    #     if not alert_executed:
+                    #         # emergency_alert.py 스크립트 실행
+                    #         subprocess.run(['python', 'emergency_alert.py'])
+                    #         alert_executed = True
+
             # 움직임 감지
             movement_detected = False
             if prev_boxes:
@@ -158,11 +169,12 @@ def detect(save_img=False):
                             movement_detected = True
                             break
 
-            if not movement_detected:
+            if 'fallen person' in s:
                 print("X")
-                # emergency_alert.py 스크립트 실행
-                subprocess.run(['python', 'emergency_alert.py'])
-                alert_executed = True
+                if not alert_executed:
+                    # emergency_alert.py 스크립트 실행
+                    subprocess.run(['python', 'emergency_alert.py'])
+                    alert_executed = True
 
             # Print time (inference + NMS)
             print(f'{s}Done. ({(1E3 * (t2 - t1)):.1f}ms) Inference, ({(1E3 * (t3 - t2)):.1f}ms) NMS')
@@ -203,7 +215,7 @@ def detect(save_img=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='yolov7.pt', help='model.pt path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default='best_final.pt', help='model.pt path(s)')
     parser.add_argument('--source', type=str, default='0', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float, default=0.25, help='object confidence threshold')
@@ -227,7 +239,7 @@ if __name__ == '__main__':
 
     with torch.no_grad():
         if opt.update:  # update all models (to fix SourceChangeWarning)
-            for opt.weights in ['yolov7.pt']:
+            for opt.weights in ['best_final.pt']:
                 detect()
                 strip_optimizer(opt.weights)
         else:

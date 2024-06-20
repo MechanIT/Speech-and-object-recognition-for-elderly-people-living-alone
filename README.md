@@ -101,10 +101,11 @@
 <details>
    <summary><b>yolov7과 yolov9 모델 사양 비교</b></summary>
   </br>
-  </br>
     <ul>
       <li>yolov7과 yolov9 모델 사양의 비교</li>
+      </br>
       yolov9의 경우 심한 딜레이와 낮은 인식도의 문제를 가졌음. 이를 보다 성공적이었던 yolov7과 yolov9 모델 사양의 비교를 통해 분석해봄.
+      </br>
       </br>
         <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/a62149ac-f7a3-4f17-b166-fce1c5f808d0" width=80%>
       </br>

@@ -95,6 +95,8 @@
       </br>
         그러나 v9의 경우 2명이 화면에 나오면 각각을 person으로 인지는 하나 2명이 각기 다른 자세를 취해도 역시 인식하지 못하고 손을 사람으로 인식하는 등 오인식 문제도 발견됨.
     </ul>
+</details>
+<details>
    <summary><b>yolov7과 yolov9 모델 사양 비교</b></summary>
   </br>
     <ul>

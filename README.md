@@ -27,7 +27,6 @@
 <details>
   <summary><b>yolov5</b></summary>
 </br>
-</br>
   <div markdown="1">
     <ul>
       <li>yolov3와 다르게 누워 있는 사람도 person으로 인식함.</li>
@@ -41,7 +40,7 @@
    </ul>
 </br>
     <ul>
-    <li>→ 그러나 누워 있는 자세까지 인지 불가</li>
+    <li><b>→ 그러나 누워 있는 자세까지 인지 불가</b>b></li>
    </ul>
 </details>
 
@@ -67,6 +66,6 @@
 </br>
 </br>
     <ul>
-      <li>→ 모델의 실시간성과 정확성을 고려하여, 학습시킬 모델을 yolov7으로 결정</li>
+      <li><b>→ 모델의 실시간성과 정확성을 고려하여, 학습시킬 모델을 yolov7으로 결정</b></li>
    </ul>
 </details>

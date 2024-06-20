@@ -33,14 +33,13 @@
       <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/9c982336-01f1-43bb-bb86-b8f10b3be2e5" width=40%>
     </ul>
   </br>
-  </br>
     <ul>
     <li>객체의 일부분만 사람으로 인식하는 yolov3와 다르게, 사람(person)으로 인식하는 범위(bounding box)가 더 커지고 다양한 자세에도 사람으로 인지를 할 수 있음</li>
       <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/37b5bc68-136f-4ab9-a3ea-0e15fdcbd273" width=40%>
    </ul>
 </br>
     <ul>
-    <li><b>→ 그러나 누워 있는 자세까지 인지 불가</b>b></li>
+    <li><b>→ 그러나 누워 있는 자세까지 인지 불가</b></li>
    </ul>
 </details>
 

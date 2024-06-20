@@ -1,10 +1,23 @@
 # Speech-and-object-recognition-for-elderly-people-living-alone
-
+그림 첨부!!
 
 ## 프로젝트 소개
+*독거 노인을 위한 안부 확인 서비스*
+
+### 📌 개발 기간
+### 📌 개발 환경
++ yolov7 : python, tensorflow, ... (ananaconda)
++  TTS : 
+### 📌 프로젝트 아키텍쳐
+### 📌 주요 기능
+
+### 📌 프로젝트 사용 방법
 
 
-### 📌 yolo 버전에 따른 한계점 비교 (pretrained model)
+---
+### 📌 Discussion
+
+#### 📌 yolo 버전에 따른 한계점 비교 (pretrained model)
 <details>
   <summary><b>yolov3 tiny</b></summary>
 </br>
@@ -69,7 +82,7 @@
 </details>
 
 
-### 📌 yolov9 모델 학습 문제
+#### 📌 yolov9 모델 학습 문제
 <details>
   <summary><b>yolov9 인지 결과</b></summary>
 </br>
@@ -81,6 +94,7 @@
     <ul>
       <li>한명이 잡혔을 때 person으로 판별가능</li>
         하드웨어의 한계상, 딜레이가 매우 심하고 person을 인지하나 그 정확도가 0.2 수준으로 낮음. 또한 거의 전신의 ⅔ 이상이 나와야 person으로 인지 가능하고 정자세에서 벗어나는 자세를 취하거나 거리가 가까우면 거의 인식하지 못함
+
     </ul>
   </br>
     <ul>
@@ -95,7 +109,10 @@
         또한 2명의 자세가 달라도 동시에 성공적으로 자세를 구별하여 인식할 수 있었음.
       </br>
       </br>
-        그러나 v9의 경우 2명이 화면에 나오면 각각을 person으로 인지는 하나, 2명이 각기 다른 자세를 취해도 역시 인식하지 못하고 손을 사람으로 인식하는 등 오인식 문제도 발견됨.
+        그러나 v9의 경우 2명이 화면에 나오면 각각을 person으로 인지는 하나, 2명이 각기 다른 자세를 취해도 역시 인식하지 못하고 손을 사람으로 인식하는 등 오인식 문제도 발견됨. </br>
+        
+)
+
     </ul>
 </details>
 <details>

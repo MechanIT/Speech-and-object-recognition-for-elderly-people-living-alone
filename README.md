@@ -35,6 +35,7 @@
 
 - 그러나 누워 있는 자세까지 인지 불가
 
+
   
 ### 📌 yolov7
 - 인지 정확도가 매우 높음. 특히 사람의 경우 대부분 90% 이상의 정확도가 출력됨
@@ -42,11 +43,9 @@
   ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d9f2adcf-609b-443f-9be3-dca6db582119)
 
 
-
 - 사람이 정지해 있을 경우,  Bounding box 크기 변화가 작음
 
   ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/c5563ec0-f5fe-4716-821e-609f3247aa28)
-
 
 
 - yolov3, yolov5보다 실시간성이 매우 좋음

@@ -72,7 +72,10 @@
 ### 📌 yolov9 모델 학습 문제
 <details>
   <summary><b>yolov3 tiny</b></summary>
-성능비교를 위해 yolov7과  yolov9을 동일 데이터셋, 동일 batch size와 epoch로 학습을 진행함. 그러나, yolov9 학습 모델을 실행했을 때 객체를 인지하는 비율이 낮고 인지에 성공하더라도 정확도가 아주 낮음. 
+</br>
+성능비교를 위해 yolov7과  yolov9을 동일 데이터셋, 동일 batch size와 epoch로 학습을 진행함. 
+</br>
+그러나, yolov9 학습 모델을 실행했을 때 객체를 인지하는 비율이 낮고 인지에 성공하더라도 정확도가 아주 낮음. 
 </br>
   <div markdown="1">
     <ul>

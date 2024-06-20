@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emergency situation</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 0 auto; padding-top: 30px; }
+        .button { background-color: #2f4468; border: none; color: white; padding: 10px 20px; text-align: center; display: inline-block; font-size: 18px; margin: 6px 3px; cursor: pointer; }
+        img { width: auto; max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h2>SOS : 사용자에게서 비정상적인 상황이 감지되었습니다. </h1>
+    <br>
+    <img src="{{ url_for('video_feed') }}" id="video">
+    <div>
+        현재 사용자에 도움이 필요할지도 모릅니다? ??
+        즉시 조치를 취해주시길 바랍니다.
+    </div>
+    <script>
+        function sendCommand(command) {
+            fetch(`/action?go=${command}`);
+        }
+    </script>
+</body>
+</html>

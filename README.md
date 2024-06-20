@@ -95,4 +95,19 @@
       </br>
         그러나 v9의 경우 2명이 화면에 나오면 각각을 person으로 인지는 하나 2명이 각기 다른 자세를 취해도 역시 인식하지 못하고 손을 사람으로 인식하는 등 오인식 문제도 발견됨.
     </ul>
+  </br>
+    <ul>
+      <li>yolov7과 yolov9 모델 사양의 비교</li>
+      yolov9의 경우 심한 딜레이와 낮은 인식도의 문제를 가졌음. 이를 보다 성공적이었던 yolov7과 yolov9 모델 사양의 비교를 통해 분석해봄.
+      </br>
+        <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/a62149ac-f7a3-4f17-b166-fce1c5f808d0" width=40%>
+      </br>
+    </ul>
+  </br>
+    <ul>
+      <li>yolov9 모델은 yolov7 모델에 비해 레이어 수가 두 배 가까이 많고, 파라미터 수와 FLOPs 또한 상당히 증가해 더 복잡하고 계산량이 많음을 의미함. 복잡성이 증가하면 더 많은 연산이 필요하고, 이는 더 많은 학습 데이터와 시간이 요구됨. 따라서 같은 조건(예: batch size, epoch)에서 학습했을 때 v7보다 yolov9 모델이 충분히 학습되지 못할 가능성이 높음.</li>
+        정상적으로 학습된 v7의 경우, 2명이 인식돼도 정확도가 떨어지지 않고 모두 사람으로 인식할 수 있는 것을 확인함. 또한 2명의 자세가 달라도 동시에 성공적으로 자세를 구별하여 인식할 수 있었음.
+      </br>
+      </br>
+    </ul>
 </details>

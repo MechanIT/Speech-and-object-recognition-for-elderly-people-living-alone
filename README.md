@@ -11,6 +11,7 @@
   ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d5425817-fbd0-4613-8a26-f994f2d2bcf6)
 
 - 누워 있는 사람의 경우, 사람으로 인지하지 못함
+  
   ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/a916836d-6226-4f9a-9d6a-21c6afcd0092)
 
 - 정자세인 사람만 제대로 인식하며, 자세가 조금만 바뀌어도 인지하지 못함

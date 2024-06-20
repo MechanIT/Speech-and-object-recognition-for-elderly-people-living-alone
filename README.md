@@ -11,8 +11,11 @@
     <ul>
       <li>인식이 매우 불안정함. bounding box가 지속적으로 나타나지 않고 깜빡거림</li>
       <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/d5425817-fbd0-4613-8a26-f994f2d2bcf6" width=70%>
+    </ul>
+  </br>
       <li>누워 있는 사람의 경우, 사람으로 인지하지 못함</li>
       <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/a916836d-6226-4f9a-9d6a-21c6afcd0092" width=70%>
+  </br>
       <li>정자세인 사람만 제대로 인식하며, 자세가 조금만 바뀌어도 인지하지 못함</li>
 </details>
 

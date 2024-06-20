@@ -23,7 +23,8 @@
 
 ### 📌 yolov5
 - v3와 다르게 누워 있는 사람도 person으로 인식함.
-  ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/9c982336-01f1-43bb-bb86-b8f10b3be2e5)
+
+   ![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/9c982336-01f1-43bb-bb86-b8f10b3be2e5)
 
 
 

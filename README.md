@@ -7,6 +7,7 @@
 ### yolo 버전에 따른 한계점 비교 (pretrained model)
 <details>
   <summary><b>yolov3 tiny</b></summary>
+</br>
   <div markdown="1">
     <ul>
       <li>인식이 매우 불안정함. bounding box가 지속적으로 나타나지 않고 깜빡거림</li>

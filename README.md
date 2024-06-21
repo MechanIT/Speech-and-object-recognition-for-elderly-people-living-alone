@@ -34,7 +34,6 @@ https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=shari
 <details>
   <summary> <a href="https://github.com/WongKinYiu/yolov7">yolov7</a> : GNU General Public License v3.0 (GPL-3.0)</summary>
 
-  <br>
   
   #### 저작권 및 라이선스
 

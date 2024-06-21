@@ -14,9 +14,11 @@
 ![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
-+ 사용한 dataset (link) </br>
++ 사용한 dataset </br>
+https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing</br>
 
-+ 구현 동영상 (link) </br>
++ 구현 동영상 </br>
+link!!
 
 + yolov7 anaconda 가상환경
 ```

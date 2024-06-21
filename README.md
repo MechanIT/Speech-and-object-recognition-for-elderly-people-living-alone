@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 ### ❓ 프로젝트 사용 방법
 ```
-명령어!
+python main.py  # main.py 실행 
 ```
 
 ---

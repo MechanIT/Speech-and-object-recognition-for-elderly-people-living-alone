@@ -1,11 +1,15 @@
-# Speech-and-object-recognition-for-elderly-people-living-alone
+# 👩‍🦳Speech-and-object-recognition-for-elderly-people-living-alone👨‍🦳
 
 
 ## 프로젝트 소개
 **독거 노인을 위한 안부 확인 서비스**
++ 구현 동영상 </br>
+link!!
+</br></br>
 
 ### 📅 개발 기간
 2024년 5월 3주 ~ 2024년 6월 3주차
+</br></br>
 
 ### ⚙ 개발 환경
 ![windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
@@ -16,9 +20,6 @@
 ![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
 + 사용한 dataset </br>
 https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing</br>
-
-+ 구현 동영상 </br>
-link!!
 
 + yolov7 anaconda 가상환경
 ```
@@ -34,32 +35,37 @@ pip install -r requirements.txt
 ```
 
 + 음성팀 : 
+</br></br>
 
 ### 📜 flowchart
 <p align="center">
 <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/project%20flowchart.png?raw=true">
 </p>
 
+</br></br>
 ### ✔ 주요 기능
-1. 사람(person / fallen person) 객체 인식
-2. person으로 객체가 인식되면 알림 음성 출력 / fallen person으로 인식되면 움직여달라는 경고 음성 출력
-3. 위급 상황으로(fallen person으로 객체 인식되나 움직임 없을 시) 판단 시 웹페이지 출력 및 이메일 전송</br>
-
+> 1. 사람(person / fallen person) 객체 인식
+> 2. person으로 객체가 인식되면 알림 음성 출력 / fallen person으로 인식되면 움직여달라는 경고 음성 출력
+> 3. 위급 상황으로(fallen person으로 객체 인식되나 움직임 없을 시) 판단 시 웹페이지 출력 및 이메일 전송 </br>
+</br>
 <p align="center">
-<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" height=70% width=45% />
-<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/web.png?raw=true" height=70% width=45% /> 
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" height=90% width=40% />
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/web.png?raw=true" height=40% width=45% /> 
 </p>
 
-
+</br></br>
 ### ❓ 프로젝트 사용 방법
 ```
 python main.py  # main.py 실행 
 ```
+</br>
 
 ---
-### 📌 Discussion
 
-#### [yolo 버전에 따른 한계점 비교 (pretrained model)]
+### 📌 Discussion
+</br>
+
+#### [ yolo 버전에 따른 한계점 비교 (pretrained model) ]
 <details>
   <summary><b>yolov3 tiny</b></summary>
 </br>
@@ -123,8 +129,9 @@ python main.py  # main.py 실행
    </ul>
 </details>
 
+</br>
 
-#### [yolov9 모델 학습 문제]
+#### [ yolov9 모델 학습 문제 ]
 <details>
   <summary><b>yolov9 인지 결과</b></summary>
 </br>

@@ -78,7 +78,6 @@ python main.py  # main.py 실행
 ---
 
 ### 📌 Discussion
-</br>
 
 #### [ yolo 버전에 따른 한계점 비교 (pretrained model) ]
 <details>

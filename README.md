@@ -44,6 +44,8 @@ pip install schedule
 pip install playsound
 pip install pydub 
 pip install ffmpeg-python
+# ffmpeg를 window에서 설치 시 별도의 설정이 필요합니다. 
+# reference : https://gumu.kr/blog/1091/ffmpeg-%EC%84%A4%EC%B9%98-%EB%B0%A9%EB%B2%95/
 ```
 
 + 웹 서버

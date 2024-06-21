@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ---
 ### 📌 Discussion
 
-#### yolo 버전에 따른 한계점 비교 (pretrained model)
+#### [yolo 버전에 따른 한계점 비교 (pretrained model)]
 <details>
   <summary><b>yolov3 tiny</b></summary>
 </br>
@@ -124,7 +124,7 @@ pip install -r requirements.txt
 </details>
 
 
-#### yolov9 모델 학습 문제
+#### [yolov9 모델 학습 문제]
 <details>
   <summary><b>yolov9 인지 결과</b></summary>
 </br>
@@ -159,7 +159,6 @@ pip install -r requirements.txt
 <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/two-not_ok.PNG?raw=true" width=30%>
 </br>
 
-    </ul>
 </details>
 <details>
    <summary><b>yolov7과 yolov9 모델 사양 비교</b></summary>

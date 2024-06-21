@@ -2,7 +2,7 @@
 
 
 ## 프로젝트 소개
-**독거 노인을 위한 안부 확인 서비스**
+**음성 인식과 컴퓨터 비전을 활용한 독거 노인 안부 확인 서비스**
 + 구현 동영상 </br>
 https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=sharing
 </br></br>

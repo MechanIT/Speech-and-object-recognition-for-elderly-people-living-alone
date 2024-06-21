@@ -145,45 +145,44 @@ def detect():
                         threading.Thread(target=voice_output, args=("움직임이 감지되지 않습니다. 비상 메일을 발송합니다.",)).start()
                         send_alert()
                         return
-                # if not person_detected: 캠에서 인식되는 객체가 없으면 false가 아니라 아예 아무 반응이x
-                print(time.time())
-                if (time.time() - response_timer) > 5:  # 10초 동안 반응이 없으면
+            # if not person_detected: 캠에서 인식되는 객체가 없으면 false가 아니라 아예 아무 반응이x
+            print(time.time())
+            if (time.time() - response_timer) > 5:  # 10초 동안 반응이 없으면
 
-                    print("사용자가 시야에서 확인되지 않습니다.")
-                    threading.Thread(target=voice_output, args=("확인을 위해 카메라 앞으로 와주세요",)).start()
-                    start_time = time.time()
-                    while time.time() - start_time < 10:
-                        time.sleep(0.5)
-                        ret, frame = cap.read()
-                        if not ret:
-                            print("프레임을 읽을 수 없습니다.")
-                            break
-                        img = letterbox(frame, imgsz, stride=stride)[0]
-                        img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
-                        img = np.ascontiguousarray(img)
-
-                        img = torch.from_numpy(img).to(device)
-                        img = img.half() if half else img.float()  # uint8 to fp16/32
-                        img /= 255.0  # 0 - 255 to 0.0 - 1.0
-                        if img.ndimension() == 3:
-                            img = img.unsqueeze(0)
-
-                        pred = model(img, augment=False)[0]
-                        pred = non_max_suppression(pred, 0.25, 0.45, classes=None, agnostic=False)
-
-                        person_detected = any(names[int(cls)] == "person" for cls in det[:, -1].tolist())
-                        if person_detected:
-                            print("사용자가 나타났습니다 : 정상 종료")
-                            threading.Thread(target=voice_output, args=("사용자가 정상적으로 확인되었습니다.",)).start()
-                            prev_frame = frame
-                            return
-
-                    if not person_detected:
-                        print("시야 내에서 사용자 확인 불가 : 비정상적인 상황 감지")
-                        threading.Thread(target=voice_output, args=("사용자를 찾을 수 없습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.",)).start()
-                        send_alert()
+                print("사용자가 시야에서 확인되지 않습니다.")
+                threading.Thread(target=voice_output, args=("확인을 위해 카메라 앞으로 와주세요",)).start()
+                start_time = time.time()
+                while time.time() - start_time < 10:
+                    time.sleep(0.5)
+                    ret, frame = cap.read()
+                    if not ret:
+                        print("프레임을 읽을 수 없습니다.")
                         break
-                        
+                    img = letterbox(frame, imgsz, stride=stride)[0]
+                    img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
+                    img = np.ascontiguousarray(img)
+
+                    img = torch.from_numpy(img).to(device)
+                    img = img.half() if half else img.float()  # uint8 to fp16/32
+                    img /= 255.0  # 0 - 255 to 0.0 - 1.0
+                    if img.ndimension() == 3:
+                        img = img.unsqueeze(0)
+
+                    pred = model(img, augment=False)[0]
+                    pred = non_max_suppression(pred, 0.25, 0.45, classes=None, agnostic=False)
+
+                    person_detected = any(names[int(cls)] == "person" for cls in det[:, -1].tolist())
+                    if person_detected:
+                        print("사용자가 나타났습니다 : 정상 종료")
+                        threading.Thread(target=voice_output, args=("사용자가 정상적으로 확인되었습니다.",)).start()
+                        prev_frame = frame
+                        return
+
+                if not person_detected:
+                    print("시야 내에서 사용자 확인 불가 : 비정상적인 상황 감지")
+                    threading.Thread(target=voice_output, args=("사용자를 찾을 수 없습니다. 위험 상황이 발생할 수 있습니다. 비상 메일을 발송합니다.",)).start()
+                    send_alert()
+                    return
 
     cap.release()
     cv2.destroyAllWindows()

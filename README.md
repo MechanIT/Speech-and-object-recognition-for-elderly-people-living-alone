@@ -34,7 +34,22 @@ cd yolov7
 pip install -r requirements.txt
 ```
 
-+ 음성팀 : 
++ 음성 출력
+```
+pip install gtts
+pip install SpeechRecognition
+pip install pyaudio
+pip install pygame
+pip install schedule
+pip install playsound
+pip install pydub 
+pip install ffmpeg-python
+```
+
++ 웹서버?
+```
+```
+
 </br></br>
 
 ### 📜 flowchart

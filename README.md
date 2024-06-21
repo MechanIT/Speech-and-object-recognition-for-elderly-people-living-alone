@@ -9,16 +9,15 @@
 https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=sharing
 </br></br>
 
-### 📅 개발 기간
-2024년 5월 3주 ~ 2024년 6월 3주차
-</br></br>
 
 ### OSS NOTICE
 
 이 애플리케이션은 다음의 오픈소스 AI 모델을 포함합니다:
-- [yolov7](https://github.com/WongKinYiu/yolov7) - 라이선스: GNU General Public License v3.0 (GPL-3.0)
 
-### 저작권 및 라이선스
+<details>
+  <summary>- [yolov7](https://github.com/WongKinYiu/yolov7) - 라이선스: GNU General Public License v3.0 (GPL-3.0) </summary>
+
+    <li> 저작권 및 라이선스</li>
 
 This application incorporates yolov7, which is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
@@ -29,6 +28,7 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+</details>
 
 # Getting Started
 ## Preparation

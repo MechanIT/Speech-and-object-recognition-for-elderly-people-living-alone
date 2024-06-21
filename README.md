@@ -34,14 +34,20 @@ pip install -r requirements.txt
 + 음성팀 : 
 
 ### 📜 flowchart
-![flow](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/project%20flowchart.png?raw=true)
+<p align="center">
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/project%20flowchart.png?raw=true">
+</p>
 
 ### ✔ 주요 기능
 1. 사람(person) 객체 인식
 2. 객체 인식 후 음성 출력
 3. 판단 결과 웹페이지 출력 및 이메일 전송</br>
-<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" width=50%>
-<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/web.png?raw=true" width=50%> 
+
+<p align="center">
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" height=70% width=45% />
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/web.png?raw=true" height=70% width=45% /> 
+</p>
+
 
 ### ❓ 프로젝트 사용 방법
 ```

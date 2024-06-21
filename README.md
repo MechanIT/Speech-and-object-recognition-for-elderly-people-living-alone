@@ -1,23 +1,54 @@
 # Speech-and-object-recognition-for-elderly-people-living-alone
-그림 첨부!!
+
 
 ## 프로젝트 소개
-*독거 노인을 위한 안부 확인 서비스*
+**독거 노인을 위한 안부 확인 서비스**
 
-### 📌 개발 기간
-### 📌 개발 환경
-+ yolov7 : python, tensorflow, ... (ananaconda)
-+  TTS : 
-### 📌 프로젝트 아키텍쳐
-### 📌 주요 기능
+### 📅 개발 기간
+2024년 5월 3주 ~ 2024년 6월 3주차
 
-### 📌 프로젝트 사용 방법
+### ⚙ 개발 환경
+![windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![vscode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+![javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
 
++ yolov7 anaconda 가상환경
+```
+conda create -n yolov7 python=3.7
+conda activate yolov7
+conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=11.0 -c pytorch
+```
++ yolov7 git clone
+```
+git clone https://github.com/WongKinYiu/yolov7.git
+cd yolov7
+pip install -r requirements.txt
+```
+
++ 음성팀 : 
+
+### 프로젝트 flowchart
+![flow](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/project%20flowchart.png?raw=true)
+
+### 주요 기능
+1. 사람 객체 인식
+2. 객체 인식 후 음성 출력
+3. 판단 결과 웹페이지 출력 및 이메일 전송
+
+   
+
+### 프로젝트 사용 방법
+```
+명령어!
+```
 
 ---
 ### 📌 Discussion
 
-#### 📌 yolo 버전에 따른 한계점 비교 (pretrained model)
+#### yolo 버전에 따른 한계점 비교 (pretrained model)
 <details>
   <summary><b>yolov3 tiny</b></summary>
 </br>
@@ -82,7 +113,7 @@
 </details>
 
 
-#### 📌 yolov9 모델 학습 문제
+#### yolov9 모델 학습 문제
 <details>
   <summary><b>yolov9 인지 결과</b></summary>
 </br>

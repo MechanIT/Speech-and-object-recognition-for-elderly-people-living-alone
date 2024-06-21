@@ -14,6 +14,9 @@
 ![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
++ 사용한 dataset (link) </br>
+
++ 구현 동영상 (link) </br>
 
 + yolov7 anaconda 가상환경
 ```
@@ -30,17 +33,17 @@ pip install -r requirements.txt
 
 + 음성팀 : 
 
-### 프로젝트 flowchart
+### 📜 flowchart
 ![flow](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/project%20flowchart.png?raw=true)
 
-### 주요 기능
-1. 사람 객체 인식
+### ✔ 주요 기능
+1. 사람(person) 객체 인식
 2. 객체 인식 후 음성 출력
-3. 판단 결과 웹페이지 출력 및 이메일 전송
+3. 판단 결과 웹페이지 출력 및 이메일 전송</br>
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" width=50%>
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/web.png?raw=true" width=50%> 
 
-   
-
-### 프로젝트 사용 방법
+### ❓ 프로젝트 사용 방법
 ```
 명령어!
 ```
@@ -124,13 +127,16 @@ pip install -r requirements.txt
   </br>
     <ul>
       <li>한명이 잡혔을 때 person으로 판별가능</li>
-        하드웨어의 한계상, 딜레이가 매우 심하고 person을 인지하나 그 정확도가 0.2 수준으로 낮음. 또한 거의 전신의 ⅔ 이상이 나와야 person으로 인지 가능하고 정자세에서 벗어나는 자세를 취하거나 거리가 가까우면 거의 인식하지 못함
-
+        하드웨어의 한계상, 딜레이가 매우 심하고 person을 인지하나 그 정확도가 0.2 수준으로 낮음. 또한 거의 전신의 1/2 이상이 나와야 person으로 인지 가능하고 정자세에서 벗어나는 자세를 취하거나 거리가 가까우면 거의 인식하지 못함</br>
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/one%20person.PNG?raw=true" width=30%> 
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/close.PNG?raw=true" width=30%>
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/another%20pose.PNG?raw=true" width=30%>
     </ul>
   </br>
     <ul>
       <li>누운 사람</li>
-        누운 사람의 경우, 다른 학습된 모델과 다르게 거의 인식하지 못함. 다양한 자세와 각도로 학습시켰지만 실제 검증에서는 많은 시도중에 1번 인식될 정도로 거의 인식하지 못함.
+        누운 사람의 경우, 다른 학습된 모델과 다르게 거의 인식하지 못함. 다양한 자세와 각도로 학습시켰지만 실제 검증에서는 많은 시도중에 1번 인식될 정도로 거의 인식하지 못함.</br>
+         <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/fallen%20person.PNG?raw=true" width=30%>
     </ul>
   </br>
     <ul>
@@ -141,8 +147,9 @@ pip install -r requirements.txt
       </br>
       </br>
         그러나 v9의 경우 2명이 화면에 나오면 각각을 person으로 인지는 하나, 2명이 각기 다른 자세를 취해도 역시 인식하지 못하고 손을 사람으로 인식하는 등 오인식 문제도 발견됨. </br>
-        
-)
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/two-ok.PNG?raw=true" width=30%>
+<img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/yolov9%20pictures/two-not_ok.PNG?raw=true" width=30%>
+</br>
 
     </ul>
 </details>

@@ -1,5 +1,5 @@
 import cv2
-from my_speech_recognition import recognize_speech, play_text
+from speech_management import recognize_speech, play_text
 from object_detection import detect_person, detect_motion
 from emergency_alert import send_alert
 

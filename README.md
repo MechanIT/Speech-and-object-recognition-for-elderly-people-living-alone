@@ -10,12 +10,12 @@ https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=shari
 </br></br>
 
 
-### OSS NOTICE
+### 📢 OSS NOTICE
 
 이 애플리케이션은 다음의 오픈소스 AI 모델을 포함합니다:
 
 <details>
-  <summary>- <a href="https://github.com/WongKinYiu/yolov7">yolov7</a> - 라이선스: GNU General Public License v3.0 (GPL-3.0)</summary>
+  <summary> <a href="https://github.com/WongKinYiu/yolov7">yolov7</a> - 라이선스: GNU General Public License v3.0 (GPL-3.0)</summary>
 
   <br>
   

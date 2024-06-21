@@ -4,7 +4,7 @@
 ## 프로젝트 소개
 **독거 노인을 위한 안부 확인 서비스**
 + 구현 동영상 </br>
-link!!
+[link!!](https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=sharing)
 </br></br>
 
 ### 📅 개발 기간

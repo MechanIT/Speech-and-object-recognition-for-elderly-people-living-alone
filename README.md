@@ -42,8 +42,8 @@ pip install -r requirements.txt
 
 ### ✔ 주요 기능
 1. 사람(person / fallen person) 객체 인식
-2. person으로 객체가 인식되면 음성 출력
-3. 위급 상황으로(fallen person 객체 인식) 판단 시 웹페이지 출력 및 이메일 전송</br>
+2. person으로 객체가 인식되면 알림 음성 출력 / fallen person으로 인식되면 움직여달라는 경고 음성 출력
+3. 위급 상황으로(fallen person으로 객체 인식되나 움직임 없을 시) 판단 시 웹페이지 출력 및 이메일 전송</br>
 
 <p align="center">
 <img src="https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/blob/main/project%20pictures/person%20detect.png?raw=true" height=70% width=45% />

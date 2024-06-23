@@ -1,1 +1,4 @@
-uploading yolov3
+### yolov3 pretrained model 구동
+
+1. https://pjreddie.com/darknet/yolo/ 에서 yolov3_tiny.weights 다운로드
+2. yolov3_test.py 실행

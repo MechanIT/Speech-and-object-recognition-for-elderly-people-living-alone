@@ -44,8 +44,7 @@
 1. 학습을 위해 GPU가 필요하므로, colab 환경에서 진행
    런타임 유형 GPU로 설정
 
-[![image](https://github.com/MechanIT/Speech-and-object-recognition-for-elderly-people-living-alone/assets/161675231/6b842115-d05f-45e4-97b3-ae5d82c55a4d)
-](https://colab.research.google.com/drive/1ayfBCIIm9Y-SSkFzCzBfIuJn3eZd7eod?usp=sharing)
+- colab 링크 : https://colab.research.google.com/drive/1ayfBCIIm9Y-SSkFzCzBfIuJn3eZd7eod?usp=sharing
 
 2. yolov7 다운로드
    	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드

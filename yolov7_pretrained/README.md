@@ -7,7 +7,7 @@
 - weight 파일 구글 드라이브 링크 : https://colab.research.google.com/drive/1d2arbddb60BSIlxFPgPBvP95rqkN5D8K?usp=drive_link
 
 
-#### 2. dyolov7 가상환경 세팅
+#### 2. yolov7 가상환경 세팅
 
 
 

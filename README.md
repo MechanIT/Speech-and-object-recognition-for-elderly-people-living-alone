@@ -16,10 +16,10 @@
 ## 📌 yolov7 모델 사용
 
 
-** 사용한 custom dataset 다운로드 링크 : https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing **
+**사용한 custom dataset 다운로드 링크 : https://drive.google.com/file/d/1cejStp1n6TYp6CaD2dsXXWqUxX40c6y4/view?usp=sharing**
 
 
-** 학습된 weight 파일 다운로드 링크 : [https://drive.google.com/file/d/1TxBgH3QAgy9GKMBtFIzrcpQZuciRXTmR/view?usp=sharing](https://drive.google.com/file/d/1ideXUrj1fqiu3NaD1xfzMq_eik1AqVll/view?usp=sharing) **
+**학습된 weight 파일 다운로드 링크 : [https://drive.google.com/file/d/1TxBgH3QAgy9GKMBtFIzrcpQZuciRXTmR/view?usp=sharing](https://drive.google.com/file/d/1ideXUrj1fqiu3NaD1xfzMq_eik1AqVll/view?usp=sharing)**
 
 
 ## 📌 실행 방법

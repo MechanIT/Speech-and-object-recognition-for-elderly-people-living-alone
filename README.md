@@ -11,7 +11,7 @@ https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=shari
 ### ✔ yolov9 시도
 + 사용한 dataset : https://drive.google.com/file/d/1B8vn-ZE4BRU-bZZGA5LAEsHwdrj0j7gb/view?usp=sharing <br/> 
 + best.pt(weight) 파일 : https://drive.google.com/file/d/1FYmHv_5HWLFQeh-Dzu5Ea2OS7civYXJR/view?usp=sharing
-
++ colab 학습 : yolov9_final.ipynb  <br/> 
 
 + yolov9 anaconda 가상환경
 ```

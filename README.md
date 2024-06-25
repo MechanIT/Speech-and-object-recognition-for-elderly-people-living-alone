@@ -36,7 +36,7 @@ python detect_dual.py --device 0 --weights best.pt (자신이 설정한 weight�
 
 #### ➕ camera streaming 웹페이지 출력
 ```
-# Node.js를 설치
+# install Node.js , download cameraweb.zip 
 node main.js
 ```
 

@@ -34,7 +34,7 @@ pip install -r requirements.txt
 python detect_dual.py --device 0 --weights best.pt (자신이 설정한 weight파일 경로)
 ```
 
-#### ➕ yolo로 판단한 결과 웹페이지 출력
+#### ➕ camera streaming 웹페이지 출력
 ```
 # Node.js를 설치
 node main.js

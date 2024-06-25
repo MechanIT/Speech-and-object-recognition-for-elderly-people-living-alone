@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1-zyx4oHsKzfmW0_0CCX7HMN1fujugCkJ/view?usp=shari
 + 사용한 dataset : https://drive.google.com/file/d/1B8vn-ZE4BRU-bZZGA5LAEsHwdrj0j7gb/view?usp=sharing <br/> 
 + best.pt(weight) 파일 : https://drive.google.com/file/d/1FYmHv_5HWLFQeh-Dzu5Ea2OS7civYXJR/view?usp=sharing
 
- <br/> 
+
 + yolov9 anaconda 가상환경
 ```
 anaconda 가상환경(python=3.10.13)
@@ -32,7 +32,6 @@ pip install -r requirements.txt
 ### ❓ 프로젝트 사용 방법
 ```
 python detect_dual.py --device 0 --weights best.pt (자신이 설정한 weight파일 경로)
-
 ```
 
 #### ➕ yolo로 판단한 결과 웹페이지 출력

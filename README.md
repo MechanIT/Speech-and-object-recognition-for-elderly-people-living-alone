@@ -56,10 +56,11 @@
 		pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
 
 4. dataset 압축 해제
+
    		%cd /content/dataset
 		!unzip /content/drive/MyDrive/dataset_for_oss_final.zip
 
-5. /content/data.yaml 파일은 다음과 같이 설정
+6. /content/data.yaml 파일은 다음과 같이 설정
 
 		train : /content/dataset/dataset_for_oss/train/images	//자신의 경로에 맞게 수정
 		val : /content/dataset/dataset_for_oss/valid/images

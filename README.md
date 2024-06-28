@@ -47,15 +47,16 @@
 - colab 링크 : https://colab.research.google.com/drive/1ayfBCIIm9Y-SSkFzCzBfIuJn3eZd7eod?usp=sharing
 
 2. yolov7 다운로드
-   	!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
+
+   		!git clone https://github.com/WongKinYiu/yolov7.git 	// yolov7 다운로드
 
 
-3. 관련 라이브러리 설치
+4. 관련 라이브러리 설치
 	
 	 	%cd yolov7 //생성된 yolov7 폴더로 이동
 		pip install -r requirements.txt	//yolov7 실행에 필요한 라이브러리 설치
 
-4. dataset 압축 해제
+5. dataset 압축 해제
 
    		%cd /content/dataset
 		!unzip /content/drive/MyDrive/dataset_for_oss_final.zip
